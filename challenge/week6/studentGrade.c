@@ -37,7 +37,7 @@ int sumScores(int scores[]) { //성적을 더하는 함수
 }
 double averageScores(int scores[]) { //성적 평군
 	double average = (double)sum / (double)num;
-	printf("평균값은 %nlf입니다,", average);
+	printf("평균값은 %3lf입니다,", average);
 }
 
 void printRanks(int scores[]) { //성적 순위
@@ -48,7 +48,7 @@ void printRanks(int scores[]) { //성적 순위
 				rank[i] += 1;
 			}
 		}
-		printf("%d번 핵생의 순위는 %d입니다", i + 1, rank[i]);
+		printf("%d번 학생의 순위는 %d입니다", i + 1, rank[i]);
 	}
 }
 	int main() {
