@@ -33,38 +33,40 @@ int sumScores(int scores[]) { //성적을 더하는 함수
 		sum += scores[i];
 		num += 1;
 	}
-	printf("학생들의 점수의 총합은 %d,",sum);
+	printf("학생들의 점수의 총합은 %d,", sum);
+	return 0;
 }
 double averageScores(int scores[]) { //성적 평군
 	double average = (double)sum / (double)num;
 	printf("평균값은 %3lf입니다,", average);
+	return 0;
 }
 
 void printRanks(int scores[]) { //성적 순위
-	int rank[5] = {1,1,1,1,1};
+	int rank[5] = { 1,1,1,1,1 };
 	for (int i = 0; i < STUDENTS; i++) {
 		for (int j = 1; j < STUDENTS; j++) {
-			if (scores[i] < scores[j]){
+			if (scores[i] < scores[j]) {
 				rank[i] += 1;
 			}
 		}
 		printf("%d번 학생의 순위는 %d입니다", i + 1, rank[i]);
 	}
 }
-	int main() {
-		int scores[STUDENTS];
-		for (int i = 0; i < STUDENTS; i++) {
-			printf("%d학생의 성적을 입력하세요: ", i + 1);
-			scanf_s("%d", &scores[i]); //학생들의 성적 입력받기
-		}
-		char ch = getchar(); //버퍼 임시저장 변수
-
-		char target;
-		printf("특정 점수 (A,B,C,D,F)를 입력하시오"); //특정점수 입력받기
-		scanf_s("%c", &target, 1);
-		classifyStudents(scores, target); //특정 점수를 받은 학생 출력
-		sumScores(scores);
-		averageScores(scores);
-		printRanks(scores);
-		return 0;
+int main() {
+	int scores[STUDENTS];
+	for (int i = 0; i < STUDENTS; i++) {
+		printf("%d학생의 성적을 입력하세요: ", i + 1);
+		scanf_s("%d", &scores[i]); //학생들의 성적 입력받기
 	}
+	char ch = getchar(); //버퍼 임시저장 변수
+
+	char target;
+	printf("특정 점수 (A,B,C,D,F)를 입력하시오"); //특정점수 입력받기
+	scanf_s("%c", &target, 1);
+	classifyStudents(scores, target); //특정 점수를 받은 학생 출력
+	sumScores(scores);
+	averageScores(scores);
+	printRanks(scores);
+	return 0;
+}

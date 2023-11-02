@@ -13,13 +13,15 @@ int main()
 		int j = 0;
 
 		while (j < floor - 1 - i) {
-			printf("S", j++); //s를 floor-i 번 출력
+			printf("S"); //s를 floor-i 번 출력
+			j++;
 		}
 
 		int k = 0;
 
 		while (k < 2 * i + 1) {
-			printf("*", k++); //*을 2*i-1번 출력
+			printf("*"); //*을 2*i-1번 출력
+			k++;
 		}
 
 		printf("\n");
