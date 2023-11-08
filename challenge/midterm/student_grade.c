@@ -72,7 +72,7 @@ int main() {
 	// HINT1: 2중 for문: (1) 학생별 (2) 과목들의 점수 합과 평균을 구하고 출력
 	// HINT2: 출력문 코드 = printf("\t%s의 평균 점수: %.2lf\n", studentNames[i], finalScore);
 
-	pointStudentResults(studentScores[][], studentNames[]);
+	pointStudentResults(studentScores, studentNames);
 	//과목 평균 점수 출력하기
 	return 0;
 }
