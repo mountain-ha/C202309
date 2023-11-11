@@ -3,26 +3,26 @@
 #define SUBJECTS 3
 #define CHARNUM 20
 
-int pointStudentResults(double studentScores[STUDENTS][SUBJECTS], char studentNames[]) {
-	double sum = 0;
+int pointStudentResults(double studentScores[STUDENTS][SUBJECTS], char studentNames[][CHARNUM]) {
 	for (int i = 0; i < STUDENTS; i++) {
+		double sum = 0;
 		for (int j = 0; j < SUBJECTS; j++) {
 		    sum += studentScores[i][j];
 		}
 		double student_average = sum / SUBJECTS;
-		printf("%s의 평균 점수: %.2fl", studentNames[i], student_average);
+		printf("      %s의 평균 점수: %.2f\n", studentNames[i], student_average);
 	}
 	return 0;
 }
 
-int pointSubjectResults(double studentScores[STUDENTS][SUBJECTS], char subjectNames[]) {
-	double sum = 0;
+int pointSubjectResults(double studentScores[STUDENTS][SUBJECTS], char subjectNames[][CHARNUM]) {
 	for (int i = 0; i < SUBJECTS; i++) {
+		double sum = 0;
 		for (int j = 0; j < STUDENTS; j++) {
 			sum += studentScores[j][i];
 		}
 		double subject_average = sum / STUDENTS;
-		printf("%s의 평균 점수: %.2fl", subjectNames[i], subject_average);
+		printf("      %s의 평균 점수: %.2f 입니다.\n", subjectNames[i], subject_average);
 	}
 	return 0;
 }
@@ -34,7 +34,7 @@ int main() {
 	double studentScores[STUDENTS][SUBJECTS] = { 0.0 }; // 학생의 시험 별 성적이 점수가 저장될 배열
 	printf("학생 %d명의 이름의 입력을 시작합니다. \n", STUDENTS);
 	for (int i = 0; i < STUDENTS; i++) {
-		printf("%d번 째 학생의 이름을 입력하세요:", i+1);
+		printf("        %d번 째 학생의 이름을 입력하세요:", i+1);
 		scanf_s("%s", &studentNames[i], (int)sizeof(studentNames[i]));
 	}
 
@@ -71,8 +71,10 @@ int main() {
 	// TODO 1.3: 학생 별 평균 점수를 출력하는 코드 블록 작성 >> 이후 함수화
 	// HINT1: 2중 for문: (1) 학생별 (2) 과목들의 점수 합과 평균을 구하고 출력
 	// HINT2: 출력문 코드 = printf("\t%s의 평균 점수: %.2lf\n", studentNames[i], finalScore);
-
 	pointStudentResults(studentScores, studentNames);
-	//과목 평균 점수 출력하기
+	printf("--------------------\n");
+	printf("과목 별 성적은 다음과 같습니다 \n");
+	pointSubjectResults(studentScores, subjectNames);
+	printf("프로그램을 종료합니다.");
 	return 0;
 }
