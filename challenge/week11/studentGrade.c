@@ -20,7 +20,7 @@ void classifyStudents(int *scores, char targetGrade) { //학생들의 성적을 매기는 
 			grade = 'F';
 		}
 		if (targetGrade == grade) {
-			printf("%d학생은 %c점수를 받았습니다.", i + 1, targetGrade);
+			printf("%d학생은 %c점수를 받았습니다.\n", i + 1, targetGrade);
 		}
 	}
 }
@@ -38,19 +38,19 @@ int sumScores(int *scores) { //성적을 더하는 함수
 }
 double averageScores(int scores) { //성적 평군
 	double average = (double)sum / (double)num;
-	printf("평균값은 %3lf입니다,", average);
+	printf("평균값은 %3lf입니다.\n", average);
 	return 0;
 }
 
 void printRanks(int *scores) { //성적 순위
 	int rank[5] = { 1,1,1,1,1 };
 	for (int i = 0; i < STUDENTS; i++) {
-		for (int j = 1; j < STUDENTS; j++) {
+		for (int j = 0; j < STUDENTS; j++) {
 			if (*(scores+i) < *(scores + j)) {
 				rank[i] += 1;
 			}
 		}
-		printf("%d번 학생의 순위는 %d입니다", i + 1, rank[i]);
+		printf("%d번 학생의 순위는 %d입니다\n", i + 1, rank[i]);
 	}
 }
 int main() {
